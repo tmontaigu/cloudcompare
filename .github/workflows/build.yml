@@ -74,6 +74,7 @@ jobs:
           $EIGEN_ROOT_DIR = Join-Path -Resolve $CONDA_LIB_DIR include eigen3
           $ZLIB_INCLUDE_DIRS = Join-Path -Resolve $CONDA_LIB_DIR include
           $ZLIB_LIBRARIES = Join-Path -Resolve $CONDA_LIB_DIR lib ${{ matrix.config.zlib_name }}
+          $PCL_DIR = Join-Path -Resolve $CONDA_LIB_DIR cmake
           cmake `
             -B build `
             -G "${{ matrix.config.generator }}" `
@@ -82,6 +83,7 @@ jobs:
             -DEIGEN_ROOT_DIR="$EIGEN_ROOT_DIR" `
             -DZLIB_INCLUDE_DIRS="$ZLIB_INCLUDE_DIRS" `
             -DZLIB_LIBRARIES="$ZLIB_LIBRARIES" `
+            -DPCL_DIR="$PCL_DIR" `
             -DPLUGIN_EXAMPLE_GL=ON `
             -DPLUGIN_EXAMPLE_IO=ON `
             -DPLUGIN_EXAMPLE_STANDARD=ON `
