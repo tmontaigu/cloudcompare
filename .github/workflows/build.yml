@@ -15,7 +15,7 @@ jobs:
           - {
               name: "Windows Latest MSVC",
               os: windows-latest,
-              generator: "NMake Makefiles",
+              generator: "Visual Studio 16 2019",
               conda_library_dir: "Library",
               compile_qpcl: "ON",
               compile_qransac: "ON",
@@ -53,11 +53,12 @@ jobs:
           xerces-c=3.2.* `
           zlib=1.2.* `
           eigen=3.3.* `
-          pcl=1.9.*
+          pcl=1.9.* `
+          ninja
 
       - name: Install additional dependencies on macos
         if: matrix.config.os == 'macos-latest'
-        run: brew install cmake ninja xerces-c
+        run: brew install cmake xerces-c
 
       - name: Configure msvc dev console
         if:  matrix.config.os == 'windows-latest'
@@ -110,4 +111,4 @@ jobs:
             .
 
       - name: Build
-        run: cmake --build build
+        run: cmake --build build --parallel --config Release
