@@ -15,7 +15,7 @@ jobs:
           - {
               name: "Windows Latest MSVC",
               os: windows-latest,
-              generator: "Visual Studio 16 2019",
+              generator: "Ninja",
               conda_library_dir: "Library",
               compile_qpcl: "ON",
               compile_qransac: "ON",
