@@ -18,6 +18,7 @@
 #include "qPDALIO.h"
 
 #include "LASFilter.h"
+#include "PDALFilter.h"
 
 
 qPDALIO::qPDALIO( QObject *parent ) :
@@ -33,5 +34,5 @@ void qPDALIO::registerCommands( ccCommandLineInterface *cmd )
 
 ccIOPluginInterface::FilterList qPDALIO::getFilters()
 {
-	return { FileIOFilter::Shared( new LASFilter ) };
+	return { FileIOFilter::Shared( new LASFilter ) , FileIOFilter::Shared ( new PDALFilter ) };
 }
