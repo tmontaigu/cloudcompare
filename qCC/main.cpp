@@ -269,7 +269,17 @@ int main(int argc, char **argv)
 		//let's rock!
 		try
 		{
-			result = app.exec();
+                  QFile file(":/CC/styles/dark.qss");
+                  file.open(QFile::ReadOnly);
+                  if (!file.isOpen()) {
+                    ccLog::Print(file.errorString());
+                  } else {
+                    QString styleSheet = QString::fromLatin1(file.readAll());
+
+                    // Option 2: Set theme for the entire application
+                    app.setStyleSheet(styleSheet);
+                  }
+                  result = app.exec();
 		}
 		catch (const std::exception& e)
 		{

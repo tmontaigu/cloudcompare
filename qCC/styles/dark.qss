@@ -1,0 +1,48 @@
+QWidget {
+    background-color: rgb(56, 58, 98);
+    color: rgb(255, 255, 255);
+}
+
+
+QTreeView::item {
+     border: 1px solid #d9d9d9;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    background-color: rgb(56, 58, 98);
+}
+
+QListView {
+    show-decoration-selected: 1; /* make the selection span the entire width of the view */
+}
+
+QListView::item:alternate {
+    background: rgb(65, 65, 98);
+}
+
+QListView::item {
+    color: #EEEEEE;
+}
+
+QTabWidget QTabBar{
+    background-color: #136ba2;
+    font: 10pt "Arial";
+}
+
+QTabWidget QTabBar::tab{
+    background-color: #136ba2;
+    color: #e6e6e6;
+}
+
+QTabWidget QTabBar::tab:selected{
+    background-color: #0f5d90;
+}
+
+QHeaderView::section {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                      stop:0 #616161, stop: 0.5 #505050,
+                                      stop: 0.6 #434343, stop:1 #656565);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;
+}
+
